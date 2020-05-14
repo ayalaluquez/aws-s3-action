@@ -22,7 +22,7 @@ func main() {
 	aws_region := os.Getenv("aws-region")
 	aws_bucket := os.Getenv("aws-bucket")	
 	filename := os.Getenv("filename")	
-	Credentials := credentials.NewEnvCredentials()
+	Credentials := credentials.NewStaticCredentials()
 
 	file, err := os.Open(filename)
 	if err != nil {
