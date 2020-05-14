@@ -14,15 +14,19 @@ func exitErrorf(msg string, args ...interface{}) {
     os.Exit(1)
 }
 
+func NewStaticCredentials() {
+	aws_access_key_id := os.Getenv("aws-access-key-id")
+	aws_secret_access_key := os.Getenv("aws-secret-access-key")
+}
+
 func main() {
 
     // Access Inputs as environment vars
-	aws_access_key_id := os.Getenv("aws-access-key-id")
-	aws_secret_access_key := os.Getenv ("aws-secret-access-key")
 	aws_region := os.Getenv("aws-region")
 	aws_bucket := os.Getenv("aws-bucket")	
 	filename := os.Getenv("filename")	
-	Credentials := credentials.NewEnvCredentials()
+
+
 
 	file, err := os.Open(filename)
 	if err != nil {
@@ -33,7 +37,7 @@ func main() {
 	
 	sess, err := session.NewSession(&aws.Config{
 		Region:      aws.String(aws_region),
-		Credentials: credentials.NewEnvCredentials(aws_access_key_id , aws_secret_access_key),
+		Credentials: credentials.NewStaticCredentials(aws_access_key_id, aws_secret_access_key),
 	})
 	_, err := sess.Config.Credentials.Get()
 
