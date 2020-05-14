@@ -15,8 +15,7 @@ func exitErrorf(msg string, args ...interface{}) {
 }
 
 //func NewStaticCredentials(aws_access_key_id string, aws_secret_access_key string) {
-	//aws_access_key_id := os.Getenv("aws-access-key-id")
-	//aws_secret_access_key := os.Getenv("aws-secret-access-key")
+
 //}
 
 func main() {
@@ -25,7 +24,8 @@ func main() {
 	aws_region := os.Getenv("aws-region")
 	aws_bucket := os.Getenv("aws-bucket")	
 	filename := os.Getenv("filename")	
-
+	aws_access_key_id := os.Getenv("aws-access-key-id")
+	aws_secret_access_key := os.Getenv("aws-secret-access-key")
 
 
 	file, err := os.Open(filename)
@@ -36,8 +36,8 @@ func main() {
 	defer file.Close()
 	
 	sess, err := session.NewSession(&aws.Config{
-		Region:      aws.String("us-west-2"),
-		Credentials: credentials.NewStaticCredentials("AKID", "SECRET_KEY", "TOKEN"),
+		Region:      aws.String(aws_region),
+		Credentials: credentials.NewStaticCredentials(aws_access_key_id, aws_secret_access_key),
 	})
 
 	uploader := s3manager.NewUploader(sess)
