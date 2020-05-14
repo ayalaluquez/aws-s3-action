@@ -31,7 +31,7 @@ func main() {
 	
 	sess, err := session.NewSession(&aws.Config{
 		Region:      aws.String(aws_region),
-		Credentials: credentials.NewStaticCredentials("aws_access_key_id ", "aws_secret_access_key"),
+		Credentials: credentials.NewStaticCredentials(aws_access_key_id , aws_secret_access_key),
 	})
 	_, err := sess.Config.Credentials.Get()
 
