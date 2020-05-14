@@ -1,0 +1,28 @@
+name: "aws s3 action"
+
+description: "Uploading a File to AWS S3"
+
+inputs:
+  aws_access_key_id:
+    description: "Your aws access key id"
+    required: true
+
+  aws_secret_access_key:
+    description: "Your aws secret access key"
+    required: true
+
+  aws_region:
+    description: "Specify the Region"
+    required: true
+
+  aws_bucket:
+    description: "Backet name"
+    required: true    
+
+  filename:
+    description: "file name"
+    required: true    
+    
+runs:
+  using: "docker"
+  image: "Dockerfile"
