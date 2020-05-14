@@ -14,7 +14,7 @@ func exitErrorf(msg string, args ...interface{}) {
     os.Exit(1)
 }
 
-func NewStaticCredentials() {
+func NewStaticCredentials(aws_access_key_id string, aws_secret_access_key string) {
 	aws_access_key_id := os.Getenv("aws-access-key-id")
 	aws_secret_access_key := os.Getenv("aws-secret-access-key")
 }
