@@ -3,19 +3,19 @@ name: "aws s3 action"
 description: "Uploading a File to AWS S3"
 
 inputs:
-  aws_access_key_id:
+  aws-access-key-id:
     description: "Your aws access key id"
     required: true
 
-  aws_secret_access_key:
+  aws-secret-access-key:
     description: "Your aws secret access key"
     required: true
 
-  aws_region:
+  aws-region:
     description: "Specify the Region"
     required: true
 
-  aws_bucket:
+  aws-bucket:
     description: "Backet name"
     required: true    
 
