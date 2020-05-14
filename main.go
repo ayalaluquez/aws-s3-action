@@ -39,8 +39,6 @@ func main() {
 		Region:      aws.String("us-west-2"),
 		Credentials: credentials.NewStaticCredentials("AKID", "SECRET_KEY", "TOKEN"),
 	})
-	_, err := sess.Config.Credentials.Get()
-
 
 	uploader := s3manager.NewUploader(sess)
 
