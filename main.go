@@ -24,8 +24,8 @@ func main() {
 	aws_region := os.Getenv("aws-region")
 	aws_bucket := os.Getenv("aws-bucket")	
 	filename := os.Getenv("filename")	
-	aws_access_key_id := os.Getenv("aws-access-key-id")
-	aws_secret_access_key := os.Getenv("aws-secret-access-key")
+	//aws_access_key_id := os.Getenv("aws-access-key-id")
+	//aws_secret_access_key := os.Getenv("aws-secret-access-key")
 
 
 	file, err := os.Open(filename)
@@ -37,7 +37,7 @@ func main() {
 	
 	sess, err := session.NewSession(&aws.Config{
 		Region:      aws.String(aws_region),
-		Credentials: credentials.NewStaticCredentials(aws_access_key_id, aws_secret_access_key),
+		Credentials: credentials.NewStaticCredentials("kkkk", "aws_secret_access_key"),
 	})
 
 	uploader := s3manager.NewUploader(sess)
